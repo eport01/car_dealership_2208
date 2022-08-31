@@ -1,11 +1,12 @@
 require 'rspec'
-require './lib/car'
+require './car'
 
 RSpec.describe Car do
   it 'exists' do
     car = Car.new("Ford Mustang", 1500, 36)
 
     expect(car).to be_a Car
+    # require 'pry' ;binding.pry 
   end
 
   it 'has a make' do
