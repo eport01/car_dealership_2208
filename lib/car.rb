@@ -1,5 +1,5 @@
 class Car 
-  attr_reader :make, :color, :model, :make_and_model, :monthly_payment, :loan_length, :paint
+  attr_reader :make, :total_cost, :color, :model, :make_and_model, :monthly_payment, :loan_length, :paint
 
   def initialize(make_and_model, monthly_payment, loan_length)
     @make = make_and_model.split.first  
