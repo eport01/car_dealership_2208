@@ -1,5 +1,5 @@
 class Dealership
-  attr_reader :name, :total_value, :details, :address, :inventory, :inventory_count, :has_inventory, :cars_by_make
+  attr_reader :name, :total_value, :details, :average_price_of_car, :address, :inventory, :inventory_count, :has_inventory, :cars_by_make
   def initialize(name, address)
     @name = name 
     @address = address
@@ -35,6 +35,10 @@ class Dealership
     # Hash["total_value", @total_value, "address", @address ]
     @details = {"total_value" => self.total_value, "address" => @address}
 
+  end
+
+  def average_price_of_car
+    (total_value/inventory_count).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
   end
   
   
