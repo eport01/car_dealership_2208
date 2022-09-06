@@ -1,5 +1,5 @@
 class Dealership
-  attr_reader :name, :total_value, :details, :average_price_of_car, :address, :inventory, :inventory_count, :has_inventory, :cars_by_make
+  attr_reader :name, :cars_sorted_by_price, :total_value, :details, :average_price_of_car, :address, :inventory, :inventory_count, :has_inventory, :cars_by_make
   def initialize(name, address)
     @name = name 
     @address = address
@@ -7,6 +7,7 @@ class Dealership
     @inventory_count = 0 
     @has_inventory = false 
     @details = {} 
+    cars_sorted_by_price = []
   end
 
   def add_car(car)
@@ -39,6 +40,12 @@ class Dealership
 
   def average_price_of_car
     (total_value/inventory_count).to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+  end
+
+  def cars_sorted_by_price
+    @inventory.sort_by {|car| car.total_cost}
+
+
   end
   
   
