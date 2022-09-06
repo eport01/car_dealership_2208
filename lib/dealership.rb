@@ -1,11 +1,12 @@
 class Dealership
-  attr_reader :name, :total_value, :address, :inventory, :inventory_count, :has_inventory, :cars_by_make
+  attr_reader :name, :total_value, :details, :address, :inventory, :inventory_count, :has_inventory, :cars_by_make
   def initialize(name, address)
     @name = name 
     @address = address
     @inventory = []
     @inventory_count = 0 
     @has_inventory = false 
+    @details = {} 
   end
 
   def add_car(car)
@@ -28,6 +29,12 @@ class Dealership
       @cost << car.total_cost 
     end
     @cost.sum
+  end
+  
+  def details
+    # Hash["total_value", @total_value, "address", @address ]
+    @details = {"total_value" => self.total_value, "address" => @address}
+
   end
   
   
